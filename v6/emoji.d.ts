@@ -1,50 +1,27 @@
-import type { APIEmoji } from '../../payloads/v6/index';
 /**
- * https://discord.com/developers/docs/resources/emoji#list-guild-emojis
- *
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
+ * Types extracted from https://discord.com/developers/docs/resources/emoji
  */
-export type RESTGetAPIGuildEmojisResult = APIEmoji[];
+import type { APIUser } from './user';
 /**
- * https://discord.com/developers/docs/resources/emoji#get-guild-emoji
+ * Not documented but mentioned
  *
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
+ * @deprecated API and Gateway v6 are deprecated and the types will not receive further updates, please update to v8.
  */
-export type RESTGetAPIGuildEmojiResult = APIEmoji;
-/**
- * https://discord.com/developers/docs/resources/emoji#create-guild-emoji-json-params
- *
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
- */
-export interface RESTPostAPIGuildEmojiJSONBody {
-    name: string;
-    /**
-     * The image data, read more [here](https://discord.com/developers/docs/reference#image-data)
-     */
-    image: string;
-    roles?: string[] | undefined;
+export interface APIPartialEmoji {
+    id: string | null;
+    name: string | null;
+    animated?: boolean;
 }
 /**
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
- */
-export type RESTPostAPIGuildEmojiResult = APIEmoji;
-/**
- * https://discord.com/developers/docs/resources/emoji#modify-guild-emoji
+ * https://discord.com/developers/docs/resources/emoji#emoji-object-emoji-structure
  *
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
+ * @deprecated API and Gateway v6 are deprecated and the types will not receive further updates, please update to v8.
  */
-export interface RESTPatchAPIGuildEmojiJSONBody {
-    name?: string | undefined;
-    roles?: string[] | null | undefined;
+export interface APIEmoji extends APIPartialEmoji {
+    roles?: string[];
+    user?: APIUser;
+    require_colons?: boolean;
+    managed?: boolean;
+    available?: boolean;
 }
-/**
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
- */
-export type RESTPatchAPIGuildEmojiResult = APIEmoji;
-/**
- * https://discord.com/developers/docs/resources/emoji#delete-guild-emoji
- *
- * @deprecated API v6 is deprecated and the types will not receive further updates, please update to v8.
- */
-export type RESTDeleteAPIGuildEmojiResult = never;
 //# sourceMappingURL=emoji.d.ts.map
