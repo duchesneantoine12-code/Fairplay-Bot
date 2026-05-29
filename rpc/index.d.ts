@@ -1,2 +1,2 @@
-export * from './v10/index';
+export * from './v10';
 //# sourceMappingURL=index.d.ts.map
